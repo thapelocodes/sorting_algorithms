@@ -63,14 +63,14 @@ void swap_prev_node(listint_t **list, listint_t **tail, listint_t **shaker)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *tail = *list, *shaker;
 	bool shaken_not_stirred = false;
+	listint_t *shaker, *tail;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
-	while (tail->next != NULL)
-		tail = tail->next;
+	for (tail = *list; tail->next != NULL; tail = tail->next)
+		;
 
 	while (shaken_not_stirred == false)
 	{
