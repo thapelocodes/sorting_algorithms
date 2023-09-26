@@ -1,10 +1,5 @@
 #include "sort.h"
 
-void swap_ints(int *a, int *b);
-int hp(int *array, size_t size, int left, int right);
-void hsort(int *array, size_t size, int left, int right);
-void quick_sort_hoare(int *array, size_t size);
-
 /**
  * swap_ints - Swaps two integers in an array.
  * @n1: first integer to swap.
@@ -24,20 +19,20 @@ void swap_ints(int *n1, int *n2)
  *                   according to the hoare partition scheme.
  * @array: The array of integers.
  * @size: The size of the array.
- * @left: The starting index of the subset to order.
- * @right: The ending index of the subset to order.
+ * @l: starting index of the subset to order.
+ * @r: The ending index of the subset to order.
  *
  * Return: The final partition index.
  *
  * Description: Uses the last element of the partition as the piv.
  * Prints the array after each swap of two elements.
  */
-int hp(int *array, size_t size, int left, int right)
+int hp(int *array, size_t size, int l, int r)
 {
 	int piv, abv, blw;
 
-	piv = array[right];
-	for (abv = left - 1, blw = right + 1; above < below;)
+	piv = array[r];
+	for (abv = l - 1, blw = r + 1; abv < blw;)
 	{
 		do {
 			abv++;
@@ -57,22 +52,22 @@ int hp(int *array, size_t size, int left, int right)
 
 /**
  * hsort - Implements the quicksort algorithm through recursion.
- * @array: An array of integers to sort.
- * @size: The size of the array.
- * @left: The starting index of the array partition to order.
- * @right: The ending index of the array partition to order.
+ * @array: array of integers to sort.
+ * @size: size of the array.
+ * @l: starting index of the array partition to order.
+ * @r: ending index of the array partition to order.
  *
  * Description: Uses the Hoare partition scheme.
  */
-void hsort(int *array, size_t size, int left, int right)
+void hsort(int *array, size_t size, int l, int r)
 {
 	int part;
 
-	if (right - left > 0)
+	if (r - l > 0)
 	{
-		part = hp(array, size, left, right);
-		hsort(array, size, left, part - 1);
-		hsort(array, size, part, right);
+		part = hp(array, size, l, r);
+		hsort(array, size, l, part - 1);
+		hsort(array, size, part, r);
 	}
 }
 
