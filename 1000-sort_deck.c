@@ -11,7 +11,7 @@ int _strcmp(const char *str1, char *str2)
 {
 	size_t i = 0;
 
-	if (str1 == '\0')
+	if (*str1 == '\0')
 		return (0);
 	while (str1[i])
 	{
