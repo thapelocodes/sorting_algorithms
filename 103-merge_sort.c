@@ -6,7 +6,7 @@ void recsort(int *subarr, int *buff, size_t front, size_t back);
 void sort(int *array, size_t size);
 
 /**
- * subarr - Sorts a subarray of integers.
+ * sort_subarr - Sorts a subarray of integers.
  * @subarr: subarray of integers to sort.
  * @buff: buffer to store the sorted subarray.
  * @front: front index of the array.
